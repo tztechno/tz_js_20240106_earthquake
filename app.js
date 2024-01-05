@@ -48,7 +48,7 @@ const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
 // チャートの作成
 const myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'scatter',
     data: {
         labels: labels,
         datasets: [{
