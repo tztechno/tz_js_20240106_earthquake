@@ -29,7 +29,7 @@ const myChart = new Chart(ctx, {
     },
     options: {
         scales: {
-            x: {
+            x: [{
                 type: 'time',
                 time: {
                     unit: 'day', // 適切な単位を指定
@@ -38,13 +38,17 @@ const myChart = new Chart(ctx, {
                     display: true,
                     text: 'Time',
                 }
-            },
-            y: {
+            }],
+            y: [{
+                ticks: {
+                    beginAtZero: true,
+                },
                 title: {
                     display: true,
                     text: 'Magnitude',
                 }
-            }
+            }]
         }
     }
 });
+
