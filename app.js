@@ -34,8 +34,6 @@ function parseCSV(csv) {
 
 
 //　検討中
-
-
 // グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
