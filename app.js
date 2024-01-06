@@ -39,7 +39,7 @@ function parseCSV(csv) {
 // グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
-    const labels = earthquakeData.map(entry => entry.time);
+    const labels = earthquakeData.map(entry => new Date(entry.time)); // Convert to Date objects
     const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag)); // 文字列から数値に変換
 
     // グラフを描画するためのコンテキスト
