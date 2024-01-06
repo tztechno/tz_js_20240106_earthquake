@@ -46,7 +46,7 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: parseFloat(entry.latitude), y: parseFloat(entry.mag) })),
+                data: earthquakeData.map(entry => ({ x: entry.latitude, y: entry.mag })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
