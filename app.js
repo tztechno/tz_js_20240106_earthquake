@@ -35,7 +35,6 @@ function parseCSV(csv) {
 }
 
 
-// グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
     const labels = earthquakeData.map(entry => entry.time);
@@ -61,7 +60,10 @@ function drawChart(earthquakeData) {
                 x: [{
                     type: 'time',
                     time: {
-                        unit: 'day',
+                        unit: 'hour', // x軸の単位を'hour'に設定
+                        displayFormats: {
+                            hour: 'HH:mm', // 表示フォーマットを設定
+                        }
                     },
                     title: {
                         display: true,
