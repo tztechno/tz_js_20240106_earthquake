@@ -66,6 +66,10 @@ function drawChart(earthquakeData) {
                     title: {
                         display: true,
                         text: 'Magnitude',
+                    },
+                    ticks: {
+                    min: 4, // Y軸の最小値
+                    max: 8, // Y軸の最大値
                     }
                 }
             }
