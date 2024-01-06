@@ -45,7 +45,7 @@ function drawChart(earthquakeData) {
 
     // チャートの作成
     const myChart = new Chart(ctx, {
-        type: 'scatter', // チャートのタイプを散布図に設定
+        type: 'line',
         data: {
             labels: labels,
             datasets: [{
