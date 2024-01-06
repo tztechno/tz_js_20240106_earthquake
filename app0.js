@@ -31,7 +31,7 @@ const myChart = new Chart(ctx, {
             x: {
                 type: 'time',
                 time: {
-                    unit: 'day', // 適切な単位を指定
+                    unit: 'hour', // 適切な単位を指定
                 },
                 title: {
                     display: true,
