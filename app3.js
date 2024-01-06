@@ -65,7 +65,7 @@ function drawChart(earthquakeData) {
                     position: 'left',
                     title: {
                         display: true,
-                        text: 'Magnitude',
+                        text: 'Magnitude2',
                     },
                     ticks: {
                     min: 4, // Y軸の最小値
