@@ -32,10 +32,11 @@ function parseCSV(csv) {
     return data;
 }
 
+
 // グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
-    const timeLabels = earthquakeData.map(entry => formatTimeLabel(entry.time));
+    const timeLabels = earthquakeData.map(entry => new Date(entry.time));
     const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag));
 
     // グラフを描画するためのコンテキスト
@@ -57,8 +58,13 @@ function drawChart(earthquakeData) {
         options: {
             scales: {
                 x: {
-                    type: 'category',
-                    labels: timeLabels,
+                    type: 'time',
+                    time: {
+                        unit: 'hour', // ここを適切に設定してください
+                        displayFormats: {
+                            hour: 'MM-DD HH:mm', // 表示フォーマットを設定
+                        }
+                    },
                     title: {
                         display: true,
                         text: 'Time',
@@ -77,6 +83,7 @@ function drawChart(earthquakeData) {
         }
     });
 }
+
 
 // 時刻の表示フォーマットを変更する関数
 function formatTimeLabel(time) {
