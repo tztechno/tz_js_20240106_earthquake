@@ -11,7 +11,7 @@ const labels = earthquakeData.map(entry => entry.time);
 const magnitudes = earthquakeData.map(entry => entry.mag);
 
 // グラフを描画するためのコンテキスト
-const ctx = document.getElementById('earthquakeChart').getContext('2d');
+const ctx = document.getElementById('earthquakeChart0').getContext('2d');
 
 // チャートの作成
 const myChart = new Chart(ctx, {
