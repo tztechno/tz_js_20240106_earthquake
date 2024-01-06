@@ -43,16 +43,17 @@ function drawChart(earthquakeData) {
     // グラフを描画するためのコンテキスト
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
+
+    
     // チャートの作成
     const myChart = new Chart(ctx, {
         type: 'scatter', // チャートのタイプを散布図に設定
         data: {
-            labels: labels,
             datasets: [{
                 label: 'Earthquake Magnitude',
-                data: magnitudes.map((mag, index) => ({ x: labels[index], y: mag })), // 散布図のデータに変換
+                data: earthquakeData.map(entry => ({ x: new Date(entry.time).toISOString(), y: parseFloat(entry.mag) })),
                 borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.5)', // マーカーの色
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
         },
         options: {
