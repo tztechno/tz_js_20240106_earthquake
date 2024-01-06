@@ -32,18 +32,16 @@ function parseCSV(csv) {
 
 
 function drawChart(earthquakeData) {
-    const latitude = earthquakeData.map(entry => entry.latitude);
+    const longitude = earthquakeData.map(entry => entry.longitude);
     const magnitudes = earthquakeData.map(entry => entry.mag);
-
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
-
     const myChart = new Chart(ctx, {
 
-        type: 'scatter', // チャートのタイプを散布図に設定
+        type: 'scatter',
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: entry.latitude, y: entry.mag })),
+                data: earthquakeData.map(entry => ({ x: entry.longitude, y: entry.mag })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
@@ -57,7 +55,7 @@ function drawChart(earthquakeData) {
                     position: 'bottom',
                     title: {
                         display: true,
-                        text: 'Latitude',
+                        text: 'Longitude',
                     }
                 },
                 y: {
@@ -65,11 +63,11 @@ function drawChart(earthquakeData) {
                     position: 'left',
                     title: {
                         display: true,
-                        text: 'Magnitude2',
+                        text: 'Magnitude',
                     },
                     ticks: {
-                    min: 4, // Y軸の最小値
-                    max: 8, // Y軸の最大値
+                    min: 4,
+                    max: 8,
                     }
                 }
             }
