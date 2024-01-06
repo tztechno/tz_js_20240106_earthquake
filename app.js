@@ -17,24 +17,26 @@ fetch(csvFilePath)
 function parseCSV(csv) {
     const lines = csv.split('\n');
     const headers = lines[0].split(',');
-
     const data = [];
-
     for (let i = 1; i < lines.length; i++) {
         const values = lines[i].split(',');
-        const entry = {};
-        
+        const entry = {};       
         for (let j = 0; j < headers.length; j++) {
             entry[headers[j]] = values[j];
         }
-
         data.push(entry);
     }
-
     return data;
 }
 
 
+
+
+
+//　検討中
+
+
+// グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
     const labels = earthquakeData.map(entry => entry.time);
@@ -45,7 +47,7 @@ function drawChart(earthquakeData) {
 
     // チャートの作成
     const myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'scatter', // チャートのタイプを散布図に設定
         data: {
             labels: labels,
             datasets: [{
