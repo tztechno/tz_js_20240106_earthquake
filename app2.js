@@ -1,5 +1,3 @@
-// app2.js
-
 const csvFilePath = 'ishikawa_202401.csv';
 
 // CSVデータを取得してグラフを描画
@@ -32,7 +30,6 @@ function parseCSV(csv) {
     return data;
 }
 
-
 // グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
@@ -60,9 +57,9 @@ function drawChart(earthquakeData) {
                 x: {
                     type: 'time',
                     time: {
-                        unit: 'hour', // ここを適切に設定してください
+                        unit: 'hour',
                         displayFormats: {
-                            hour: 'MM-DD HH:mm', // 表示フォーマットを設定
+                            hour: 'HH:mm', // 表示フォーマットを設定 (only hours and minutes)
                         }
                     },
                     title: {
@@ -82,17 +79,4 @@ function drawChart(earthquakeData) {
             }
         }
     });
-}
-
-
-// 時刻の表示フォーマットを変更する関数
-function formatTimeLabel(time) {
-    const date = new Date(time);
-    const month = date.getMonth() + 1; // Months are zero-based
-    const day = date.getDate();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    // Format: MM-DD HH:mm
-    return `${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
