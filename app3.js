@@ -39,7 +39,7 @@ function drawChart(earthquakeData) {
 
     const myChart = new Chart(ctx, {
 
-        type: 'scatter', // チャートのタイプを散布図に設定
+        type: 'scatter',
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
@@ -68,8 +68,8 @@ function drawChart(earthquakeData) {
                         text: 'Magnitude2',
                     },
                     ticks: {
-                    min: 4, // Y軸の最小値
-                    max: 8, // Y軸の最大値
+                    min: 4,
+                    max: 8,
                     }
                 }
             }
