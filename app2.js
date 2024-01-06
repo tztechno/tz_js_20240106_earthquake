@@ -64,10 +64,6 @@ function drawChart(earthquakeData) {
                     title: {
                         display: true,
                         text: 'Magnitude',
-                    },
-                    ticks: {
-                    min: 4,
-                    max: 8,
                     }
                 }
             }
