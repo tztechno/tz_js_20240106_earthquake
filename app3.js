@@ -49,15 +49,20 @@ function drawChart(earthquakeData) {
             }]
         },
 
+
         options: {
             scales: {
                 x: {
+                    type: 'linear',
+                    position: 'bottom',
                     title: {
                         display: true,
-                        text: 'Latitude',
+                        text: 'Longitude',
                     }
                 },
                 y: {
+                    type: 'linear',
+                    position: 'left',
                     title: {
                         display: true,
                         text: 'Magnitude',
