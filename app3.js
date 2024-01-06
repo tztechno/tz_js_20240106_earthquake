@@ -35,17 +35,18 @@ function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
     const myChart = new Chart(ctx, {
-        type: 'scatter',
+
+        type: 'scatter', // チャートのタイプを散布図に設定
         data: {
-            labels: latitude, // X軸にlatitudeを使用
             datasets: [{
-                label: 'Earthquake Magnitude',
-                data: magnitudes,
+                label: 'Earthquake Locations',
+                data: earthquakeData.map(entry => ({ x: parseFloat(entry.latitude), y: parseFloat(entry.mag) })), //xyのpair data
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                fill: false,
             }]
         },
+
+        
         options: {
             scales: {
                 x: {
