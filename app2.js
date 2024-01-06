@@ -45,16 +45,17 @@ function drawChart(earthquakeData) {
     // チャートの作成
     const myChart = new Chart(ctx, {
         type: 'scatter', // 散布図
+
+        type: 'scatter', // チャートのタイプを散布図に設定
         data: {
-            labels: timeLabels,
             datasets: [{
-                label: 'Earthquake Magnitude',
-                data: magnitudes,
+                label: 'Earthquake Locations',
+                data: earthquakeData.map(entry => ({ x: parseFloat(entry.time), y: parseFloat(entry.mag) })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                fill: false, // 線の下を塗りつぶさない
             }]
         },
+
         options: {
             scales: {
                 x: {
