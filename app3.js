@@ -57,7 +57,7 @@ function drawChart(earthquakeData) {
                     position: 'bottom',
                     title: {
                         display: true,
-                        text: 'Longitude',
+                        text: 'Latitude',
                     }
                 },
                 y: {
