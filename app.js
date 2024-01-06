@@ -5,12 +5,17 @@ const csvFilePath = 'ishikawa_202401.csv';
 
 // CSVデータを取得してグラフを描画
 fetch(csvFilePath)
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to fetch CSV, status ${response.status}`);
+        }
+        return response.text();
+    })
     .then(csvData => {
         const earthquakeData = parseCSV(csvData);
         drawChart(earthquakeData);
     })
-    .catch(error => console.error('Error fetching CSV:', error));
+    .catch(error => console.error('Error:', error));
 
 
 // CSVデータを解析する関数
