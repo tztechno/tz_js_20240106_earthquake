@@ -29,7 +29,7 @@ function convertCSVtoHTML(csvData) {
 }
 
 // CSVファイルのURL
-var csvUrl = 'path/to/your/file.csv';
+var csvUrl = 'ishikawa_202401.csv';
 
 // CSVデータを取得してHTMLに変換し、テーブルコンテナに挿入する
 fetchCSV(csvUrl, function(csvData) {
