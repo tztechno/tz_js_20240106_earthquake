@@ -1,5 +1,6 @@
 const csvFilePath = 'ishikawa_202401.csv';
 
+
 // CSVデータを取得してグラフを描画
 fetch(csvFilePath)
     .then(response => {
@@ -13,6 +14,7 @@ fetch(csvFilePath)
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
+
 
 // CSVデータを解析する関数
 function parseCSV(csv) {
@@ -30,6 +32,7 @@ function parseCSV(csv) {
     return data;
 }
 
+
 // グラフを描画する関数
 function drawChart(earthquakeData) {
     // データを整形
@@ -41,7 +44,7 @@ function drawChart(earthquakeData) {
 
     // チャートの作成
     const myChart = new Chart(ctx, {
-        type: 'line', // チャートのタイプを折れ線グラフに設定
+        type: 'scatter', // 散布図
         data: {
             labels: timeLabels,
             datasets: [{
