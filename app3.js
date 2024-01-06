@@ -32,8 +32,11 @@ function parseCSV(csv) {
 
 
 function drawChart(earthquakeData) {
-    const latitude = earthquakeData.map(entry => parseFloat(entry.latitude));
-    const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag));
+    //const latitude = earthquakeData.map(entry => parseFloat(entry.latitude));
+    //const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag));
+
+    const latitude = earthquakeData.map(entry => entry.latitude);
+    const magnitudes = earthquakeData.map(entry => entry.mag);
 
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
