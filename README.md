@@ -2,13 +2,15 @@
 
 [error]
 
-https://tztechno.github.io/tz_js_20240106_earthquake/
+
 
 https://tztechno.github.io/tz_js_20240106_earthquake/time_mag.html
 
 https://tztechno.github.io/tz_js_20240106_earthquake/latitude_mag.html
 
 [success]
+
+https://tztechno.github.io/tz_js_20240106_earthquake/ (=location.html)
 
 https://tztechno.github.io/tz_js_20240106_earthquake/location.html
 
