@@ -57,7 +57,7 @@ function drawChart(earthquakeData) {
                 },
                 y: {
                     ticks: {
-                        beginAtZero: true,
+                        beginAtZero: false,
                     },
                     title: {
                         display: true,
