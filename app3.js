@@ -1,5 +1,6 @@
 const csvFilePath = 'ishikawa_202401.csv';
 
+
 fetch(csvFilePath)
     .then(response => {
         if (!response.ok) {
@@ -12,6 +13,7 @@ fetch(csvFilePath)
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
+
 
 function parseCSV(csv) {
     const lines = csv.split('\n');
@@ -28,6 +30,7 @@ function parseCSV(csv) {
     return data;
 }
 
+
 function drawChart(earthquakeData) {
     const latitude = earthquakeData.map(entry => parseFloat(entry.latitude));
     const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag));
@@ -40,13 +43,12 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: parseFloat(entry.latitude), y: parseFloat(entry.mag) })), //xyのpair data
+                data: earthquakeData.map(entry => ({ x: parseFloat(entry.latitude), y: parseFloat(entry.mag) })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
         },
 
-        
         options: {
             scales: {
                 x: {
@@ -56,9 +58,6 @@ function drawChart(earthquakeData) {
                     }
                 },
                 y: {
-                    ticks: {
-                        beginAtZero: false,
-                    },
                     title: {
                         display: true,
                         text: 'Magnitude',
