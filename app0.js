@@ -4,6 +4,7 @@
 const earthquakeData = [
     { time: '2024-01-01T12:00:00', mag: 5.0 },
     { time: '2024-01-02T15:30:00', mag: 6.2 },
+    { time: '2024-01-03T14:30:00', mag: 4.2 },
 ];
 
 // データを整形
@@ -31,7 +32,7 @@ const myChart = new Chart(ctx, {
             x: {
                 type: 'time',
                 time: {
-                    unit: 'hour', // 適切な単位を指定
+                    unit: 'day', // 適切な単位を指定
                 },
                 title: {
                     display: true,
