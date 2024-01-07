@@ -3,25 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>time2date</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-    </style>
+    <title>CSV Date変換</title>
 </head>
 <body>
 
-    <h2>time2date</h2>
-    <div id="table-container"></div>
-    <script src="https://cdn.jsdelivr.net/npm/csv-parse/lib/sync.js"></script>
-    <script src="time2date.js"></script>
+    <input type="file" id="fileInput" accept=".csv">
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const csvData = e.target.result;
+                    const records = parseCsv(csvData);
+
+                    // 'time'列をDateオブジェクトに変換して新しい'date'列を追加
+                    records.forEach(record => {
+                        record.date = new Date(record.time);
+                    });
+
+                    // 新しいCSVファイルとして保存（ブラウザでは直接ファイルを保存できないため、表示するなどの方法が必要）
+                    console.log(records);
+                };
+
+                reader.readAsText(file);
+            }
+        }
+
+        function parseCsv(csvData) {
+            // ブラウザ上でのCSVパースの実装
+            // ここでは単純に改行ごとに分割し、各行をカンマで分割してオブジェクトにする例を示しています
+            const lines = csvData.split('\n');
+            const headers = lines[0].split(',');
+            const records = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split(',');
+                const record = {};
+
+                for (let j = 0; j < headers.length; j++) {
+                    record[headers[j]] = values[j];
+                }
+
+                records.push(record);
+            }
+
+            return records;
+        }
+    </script>
 
 </body>
 </html>
