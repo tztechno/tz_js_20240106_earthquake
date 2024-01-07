@@ -1,3 +1,6 @@
+
+const csvFilePath = 'ishikawa_202401.csv'; 
+
 function parseCSV(csv) {
     const lines = csv.split('\n');
     const headers = lines[0].split(',');
