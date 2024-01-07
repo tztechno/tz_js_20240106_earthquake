@@ -32,7 +32,10 @@ function parseCSV(csv) {
 function drawChart(earthquakeData) {
     const time = earthquakeData.map(entry => entry.time);
     const magnitudes = earthquakeData.map(entry => entry.mag);
-
+    
+    // Output data to console
+    console.log('Earthquake Data:', earthquakeData);
+    
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
     const myChart = new Chart(ctx, {
