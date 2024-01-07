@@ -29,7 +29,8 @@ function parseCSV(csv) {
             // Convert 'time' column to Date object
             if (key === 'time') {
                 value = new Date(value);
-            } else if (key === 'mag') {
+            // } else if (key === 'mag') {
+            } else {
                 // Remove any non-numeric characters before parsing
                 value = parseFloat(value.replace(/[^\d.]/g, ''));
             }
