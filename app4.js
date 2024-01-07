@@ -43,7 +43,7 @@ function parseCSV(csv) {
 }
 
 
-//////////////////
+//////////////////x: moment(entry.time),
 
 function drawChart(earthquakeData) {
     const time = earthquakeData.map(entry => moment(entry.time));
