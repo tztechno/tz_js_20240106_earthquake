@@ -18,16 +18,26 @@ fetch(csvFilePath)
     .catch(error => console.error('Error:', error));
 
 
-// CSVデータを解析する関数
 function parseCSV(csv) {
     const lines = csv.split('\n');
     const headers = lines[0].split(',');
     const data = [];
     for (let i = 1; i < lines.length; i++) {
         const values = lines[i].split(',');
-        const entry = {};       
+        const entry = {};
         for (let j = 0; j < headers.length; j++) {
-            entry[headers[j]] = values[j];
+            const key = headers[j].trim();  // Remove leading/trailing whitespaces from headers
+            let value = values[j].trim();  // Remove leading/trailing whitespaces from values
+
+            // Convert 'time' column to Date object
+            if (key === 'time') {
+                value = new Date(value);
+            } else if (key === 'mag') {
+                // Remove any non-numeric characters before parsing
+                value = parseFloat(value.replace(/[^\d.]/g, ''));
+            }
+
+            entry[key] = value;
         }
         data.push(entry);
     }
