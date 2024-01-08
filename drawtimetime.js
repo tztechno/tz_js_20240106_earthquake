@@ -32,10 +32,6 @@ function drawChart(earthquakeData) {
                 x: {
                     type: 'time',
                     position: 'bottom',
-                    time: {
-                        parser: 'YYYY-MM-DDTHH:mm:ss', 
-                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss', 
-                    },
                     title: {
                         display: true,
                         text: 'Time',
@@ -44,10 +40,6 @@ function drawChart(earthquakeData) {
                 y: {
                     type: 'time',
                     position: 'bottom',
-                    time: {
-                        parser: 'YYYY-MM-DDTHH:mm:ss',  
-                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss',  
-                    },
                     title: {
                         display: true,
                         text: 'Time',
