@@ -36,12 +36,12 @@ function drawChart(earthquakeData) {
                         display: true,
                         text: 'Time',
                     },
-                    time: {
-                    unit: 'day', // 例: 'day', 'hour', 'month' など
-                    displayFormats: {
-                        day: 'MMM D', // 例: 'Jan 1', 'Feb 2' など
-                        },
-                    },
+        	        time: {
+                        unit: 'hour', // 例: 'day', 'hour', 'month' など
+                        displayFormats: {
+                            hour: 'MMM D, HH:mm', // 例: 'Jan 1, 12:00', 'Feb 2, 15:30' など
+                        }
+                    }
                 },
                 y: {
                     type: 'linear',
