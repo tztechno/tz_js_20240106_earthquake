@@ -7,7 +7,7 @@ function convertDates(T) {
 
 convertDates(T); 
 function drawChart(earthquakeData) {
-    const time = earthquakeData.map(entry => ConvertDates(entry.time));
+    const time = earthquakeData.map(entry => entry.time);
     const magnitudes = earthquakeData.map(entry => entry.mag);
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
@@ -16,7 +16,7 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: ConvertDates(entry.time), y: entry.mag })),
+                data: earthquakeData.map(entry => ({ x: convertDates(entry.time), y: entry.mag })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
