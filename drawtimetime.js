@@ -9,7 +9,7 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: new Date(entry.time), y: entry.time })),
+                data: earthquakeData.map(entry => ({ x: entry.time, y: entry.time })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
@@ -20,8 +20,8 @@ function drawChart(earthquakeData) {
                     type: 'time',
                     position: 'bottom',
                     time: {
-                        parser: 'YYYY-MM-DDTHH:mm:ss',  // パーサーの指定
-                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss',  // ツールチップのフォーマット
+                        parser: 'YYYY-MM-DDTHH:mm:ss', 
+                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss', 
                     },
                     title: {
                         display: true,
@@ -32,8 +32,8 @@ function drawChart(earthquakeData) {
                     type: 'time',
                     position: 'bottom',
                     time: {
-                        parser: 'YYYY-MM-DDTHH:mm:ss',  // パーサーの指定
-                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss',  // ツールチップのフォーマット
+                        parser: 'YYYY-MM-DDTHH:mm:ss',  
+                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss',  
                     },
                     title: {
                         display: true,
