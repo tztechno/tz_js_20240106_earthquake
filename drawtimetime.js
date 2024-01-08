@@ -38,7 +38,7 @@ function drawChart(earthquakeData) {
                     }
                 },
                 y: {
-                    type:  'time',
+                    type: 'linear',
                     position: 'bottom',
                     title: {
                         display: true,
