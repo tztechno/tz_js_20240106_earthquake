@@ -30,7 +30,7 @@ function drawChart(earthquakeData) {
         options: {
             scales: {
                 x: {
-                    type: 'time',
+                    type: 'category',
                     position: 'bottom',
                     title: {
                         display: true,
@@ -38,7 +38,7 @@ function drawChart(earthquakeData) {
                     }
                 },
                 y: {
-                    type: 'time',
+                    type: 'category',
                     position: 'bottom',
                     title: {
                         display: true,
