@@ -32,10 +32,6 @@ function drawChart(earthquakeData) {
                 x: {
                     type: 'time',
                     position: 'bottom',
-                    time: {
-                        parser: 'YYYY-MM-DDTHH:mm:ss',  // パーサーの指定
-                        tooltipFormat: 'YYYY-MM-DDTHH:mm:ss',  // ツールチップのフォーマット
-                    },
                     title: {
                         display: true,
                         text: 'Time',
