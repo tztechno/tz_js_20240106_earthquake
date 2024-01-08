@@ -22,7 +22,7 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: new Date(entry.time), y: entry.time })),
+                data: earthquakeData.map(entry => ({ x: new Date(entry.time), y: new Date(entry.time) })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
@@ -38,7 +38,7 @@ function drawChart(earthquakeData) {
                     }
                 },
                 y: {
-                    type: 'category',
+                    type: 'linear',
                     position: 'bottom',
                     title: {
                         display: true,
