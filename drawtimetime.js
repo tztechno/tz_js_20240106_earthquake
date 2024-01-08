@@ -30,12 +30,18 @@ function drawChart(earthquakeData) {
         options: {
             scales: {
                 x: {
-                    type: 'linear',
+                    type: 'time',
                     position: 'bottom',
                     title: {
                         display: true,
                         text: 'Time',
-                    }
+                    },
+                    time: {
+                    unit: 'day', // 例: 'day', 'hour', 'month' など
+                    displayFormats: {
+                        day: 'MMM D', // 例: 'Jan 1', 'Feb 2' など
+                        },
+                    },
                 },
                 y: {
                     type: 'linear',
