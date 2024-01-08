@@ -9,18 +9,14 @@ function parseCSV(csv) {
         const values = lines[i].split(',');
         const entry = {};
         for (let j = 0; j < headers.length; j++) {
-            const key = headers[j].trim();  // Remove leading/trailing whitespaces from headers
-            let value = values[j].trim();  // Remove leading/trailing whitespaces from values
+            const key = headers[j].trim();
+            let value = values[j].trim();
 
-            // Convert 'time' column to Date object
             if (key === 'time') {
-                value = new Date(value);
-            // } else if (key === 'mag') {
+                value = value;
             } else {
-                // Remove any non-numeric characters before parsing
                 value = parseFloat(value.replace(/[^\d.]/g, ''));
             }
-
             entry[key] = value;
         }
         data.push(entry);
