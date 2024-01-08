@@ -1,9 +1,3 @@
-function convertDates(T) {
-  const dateObjects = T.map(t_str => new Date(t_str));
-  dateObjects.forEach(dateObj => {
-  console.log(dateObj.toISOString());
-  });
-}
 
 function drawChart(earthquakeData) {
     const time = earthquakeData.map(entry => entry.time);
@@ -15,7 +9,7 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: convertDates(entry.time), y: entry.time })),
+                data: earthquakeData.map(entry => ({ x: new Date(entry.time), y: entry.time })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
