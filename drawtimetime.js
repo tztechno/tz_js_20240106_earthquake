@@ -30,6 +30,32 @@ function drawChart(earthquakeData) {
         options: {
             scales: {
                 x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Time',
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Time',
+                    }
+                }
+
+              
+            }
+        }
+    });
+}
+
+
+/*
+
+                x: {
                     type: "time",
                     position: 'bottom',
                     title: {
@@ -52,8 +78,4 @@ function drawChart(earthquakeData) {
                     }
                 }
 
-              
-            }
-        }
-    });
-}
+*/
