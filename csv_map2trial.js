@@ -50,7 +50,7 @@ class CSVMap extends HTMLElement {
     
     ///////////////////////////////////////////
     
-    async redrawCircles() {
+  async redrawCircles() {
     if (this.circleLayer) {
       this.map.removeLayer(this.circleLayer);
     }
