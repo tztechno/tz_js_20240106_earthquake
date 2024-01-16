@@ -58,6 +58,7 @@ class CSVMap extends HTMLElement {
     this.circleLayer.addTo(this.map);
 
     const level = this.getAttribute("level");
+    const magMultiplier = 500;
 
     for (const d of this.data) {
       const ll = await this.getLatLng(d);
@@ -66,7 +67,8 @@ class CSVMap extends HTMLElement {
       }
 
       const mag = parseFloat(d["mag"]) || 0; // Adjust the key according to your CSV structure
-      const radius = 1000 * mag ** 2;
+      const radius = magMultiplier * mag ** 2;
+
       const circle = L.circle(ll, {
         radius: radius,
         color: 'red', // You can customize the circle color here
@@ -75,7 +77,7 @@ class CSVMap extends HTMLElement {
       this.circleLayer.addLayer(circle);
     }
   }
-
+    
     ///////////////////////////////////////////
     
 
@@ -249,14 +251,12 @@ class CSVMap extends HTMLElement {
 
     const level = this.getAttribute("level");
 
-    
     ///////////////////////////////
     
     await this.redrawCircles();
     
     ///////////////////////////////
 
-    
     const lls = [];
     if (level == null) {
       for (const d of this.data) {
