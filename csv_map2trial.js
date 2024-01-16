@@ -47,6 +47,40 @@ class CSVMap extends HTMLElement {
     this.data = await getCSV();
     //console.log(this.data);
 
+    
+    ///////////////////////////////////////////
+    
+    async redrawCircles() {
+    if (this.circleLayer) {
+      this.map.removeLayer(this.circleLayer);
+    }
+    this.circleLayer = L.layerGroup();
+    this.circleLayer.addTo(this.map);
+
+    const level = this.getAttribute("level");
+    const magMultiplier = 500;
+
+    for (const d of this.data) {
+      const ll = await this.getLatLng(d);
+      if (!ll) {
+        continue;
+      }
+
+      const mag = parseFloat(d["mag"]) || 0; // Adjust the key according to your CSV structure
+      const radius = magMultiplier * mag ** 2;
+
+      const circle = L.circle(ll, {
+        radius: radius,
+        color: 'red', // You can customize the circle color here
+      });
+
+      this.circleLayer.addLayer(circle);
+    }
+  }
+
+    ///////////////////////////////////////////
+    
+
     const grayscale = this.getAttribute("grayscale");
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -217,6 +251,11 @@ class CSVMap extends HTMLElement {
 
     const level = this.getAttribute("level");
 
+    ///////////////////////////////
+    await this.redrawCircles();
+    ///////////////////////////////
+
+    
     const lls = [];
     if (level == null) {
       for (const d of this.data) {
