@@ -4,8 +4,6 @@
 
 https://tztechno.github.io/tz_js_20240106_earthquake/time_time.html
 
-https://tztechno.github.io/tz_js_20240106_earthquake/location_map2trial.html
-
 [success]
 
 https://tztechno.github.io/tz_js_20240106_earthquake/location_map.html
