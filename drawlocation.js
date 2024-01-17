@@ -52,4 +52,13 @@ function drawChart(earthquakeData) {
             }
         }
     });
+
+    // 円を描画
+    const centerX = longitudes.reduce((sum, lon) => sum + lon, 0) / longitudes.length;
+    const centerY = latitudes.reduce((sum, lat) => sum + lat, 0) / latitudes.length;
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 10, 0, 2 * Math.PI);
+    ctx.stroke();
+
 }
