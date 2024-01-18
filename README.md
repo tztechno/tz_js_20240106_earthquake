@@ -1,10 +1,7 @@
 # tz_js_20240106_earthquake
 
-[error]
 
-https://tztechno.github.io/tz_js_20240106_earthquake/time_time.html
-
-[success]
+https://tztechno.github.io/tz_js_20240106_earthquake/time_time.html (無意味)
 
 https://tztechno.github.io/tz_js_20240106_earthquake/location_map.html
 
