@@ -46,14 +46,10 @@ function parseCSV(csv) {
 
 
 
+//　検討中
+//　検討中
+//　検討中
 
-//　検討中
-//　検討中
-//　検討中
-//　検討中
-//　検討中
-//　検討中
-//　検討中
 function drawCircle(ctx, location, mag) {
     var centerX = location.x;
     var centerY = location.y;
