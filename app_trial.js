@@ -1,4 +1,4 @@
-// app.js
+// app＿trial.js
 
 const csvFilePath = './ishikawa_202401.csv';
 console.log(csvFilePath)
