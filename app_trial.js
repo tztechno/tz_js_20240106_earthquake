@@ -13,6 +13,7 @@ fetch(csvFilePath)
     .then(csvData => {
         console.log('CSV Data:', csvData); // Log CSV data to check if it's retrieved correctly
         const earthquakeData = parseCSV(csvData);
+        console.log('Parsed Earthquake Data:', earthquakeData); // Log parsed data to check if it's correct
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
