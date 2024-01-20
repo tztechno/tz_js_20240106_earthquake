@@ -2,12 +2,11 @@
 
 const csvFilePath = 'ishikawa_202401.csv';
 
-
 // CSVデータを取得してグラフを描画
 fetch(csvFilePath)
     .then(response => {
         if (!response.ok) {
-            throw new Error(`Failed to fetch CSV, status ${response.status}`);
+            throw new Error(`Failed to fetch CSV at ${csvFilePath}, status ${response.status}`);
         }
         return response.text();
     })
@@ -16,7 +15,6 @@ fetch(csvFilePath)
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
-
 
 function parseCSV(csv) {
     const lines = csv.split('\n');
@@ -32,7 +30,6 @@ function parseCSV(csv) {
             // Convert 'time' column to Date object
             if (key === 'time') {
                 value = new Date(value);
-            // } else if (key === 'mag') {
             } else {
                 // Remove any non-numeric characters before parsing
                 value = parseFloat(value.replace(/[^\d.]/g, ''));
@@ -44,30 +41,20 @@ function parseCSV(csv) {
     return data;
 }
 
-
-
-//　検討中
-//　検討中
-//　検討中
-
-function drawCircle(ctx, location, mag) {
-    var centerX = location.x;
-    var centerY = location.y;
-    var radius = mag;
+function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
+    const { x, y } = location;
 
     ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-    ctx.lineWidth = 1; // Circle line thickness
-    ctx.strokeStyle = 'red'; // Circle line color
-    ctx.stroke(); // Draw the circle
+    ctx.arc(x, y, mag, 0, 2 * Math.PI, false);
+    ctx.lineWidth = lineWidth;
+    ctx.strokeStyle = color;
+    ctx.stroke();
 }
 
 // Draw circles based on earthquake data
 function drawChart(earthquakeData) {
-    // Get the chart canvas context
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
-    // Draw the scatter plot
     const myChart = new Chart(ctx, {
         type: 'scatter',
         data: {
@@ -102,11 +89,10 @@ function drawChart(earthquakeData) {
                 }
             },
             plugins: {
-                // Use the 'afterDraw' hook to draw circles on top of the scatter plot
                 afterDraw: (chart) => {
                     const { ctx } = chart;
                     const data = chart.config.data.datasets[0].data;
-                    
+
                     // Draw circles for each earthquake entry
                     data.forEach(entry => {
                         drawCircle(ctx, { x: entry.x, y: entry.y }, entry.r);
