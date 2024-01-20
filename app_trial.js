@@ -18,9 +18,7 @@ fetch(csvFilePath)
         return response.text();
     })
     .then(csvData => {
-        console.log('CSV Data:', csvData); // Log CSV data to check if it's retrieved correctly
         const earthquakeData = parseCSV(csvData);
-        console.log('Parsed Earthquake Data:', earthquakeData); // Log parsed data to check if it's correct
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
@@ -35,8 +33,8 @@ function parseCSV(csv) {
         const values = lines[i].split(',');
         const entry = {};
         for (let j = 0; j < headers.length; j++) {
-            const key = headers[j].trim();  // Remove leading/trailing whitespaces from headers
-            let value = values[j].trim();  // Remove leading/trailing whitespaces from values
+            const key = headers[j].trim();
+            let value = values[j].trim();
 
             // Convert 'time' column to Date object
             if (key === 'time') {
@@ -61,7 +59,6 @@ function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
     ctx.stroke();
 }
 
-// Draw circles based on earthquake data
 function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
     const myChart = new Chart(ctx, {
@@ -103,7 +100,7 @@ function drawChart(earthquakeData) {
                     const data = chart.config.data.datasets[0].data;
                     // Draw circles for each earthquake entry
                     data.forEach(entry => {
-                        drawCircle(ctx, { x: entry.x, y: entry.y }, entry.r);
+                        drawCircle(ctx, { x: entry.x, y: entry.y }, 10*entry.r);
                     });
                 }
             }
