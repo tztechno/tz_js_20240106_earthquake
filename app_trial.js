@@ -1,8 +1,14 @@
 // app＿trial.js
 
 const csvFilePath = './ishikawa_202401.csv';
-console.log(csvFilePath)
 
+fetch('./ishikawa_202401.csv')
+    .then(response => response.text())
+    .then(console.log)
+    .catch(console.error);
+
+
+/*
 fetch(csvFilePath)
     .then(response => {
         if (!response.ok) {
@@ -17,8 +23,7 @@ fetch(csvFilePath)
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
-
-
+*/
 
 
 function parseCSV(csv) {
