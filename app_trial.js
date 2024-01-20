@@ -54,25 +54,34 @@ function parseCSV(csv) {
 //　検討中
 //　検討中
 //　検討中
-//　検討中
+function drawCircle(ctx, location, mag) {
+    var centerX = location.x;
+    var centerY = location.y;
+    var radius = mag;
 
-// グラフを描画する関数
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    ctx.lineWidth = 1; // Circle line thickness
+    ctx.strokeStyle = 'red'; // Circle line color
+    ctx.stroke(); // Draw the circle
+}
+
+// Draw circles based on earthquake data
 function drawChart(earthquakeData) {
-    // データを整形
-    const latitudes = earthquakeData.map(entry => parseFloat(entry.latitude));
-    const longitudes = earthquakeData.map(entry => parseFloat(entry.longitude));
-    const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag));
-    
-    // グラフを描画するためのコンテキスト
+    // Get the chart canvas context
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
-    // チャートの作成
+    // Draw the scatter plot
     const myChart = new Chart(ctx, {
-        type: 'scatter', // チャートのタイプを散布図に設定
+        type: 'scatter',
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: parseFloat(entry.longitude), y: parseFloat(entry.latitude), r: parseFloat(entry.mag)  })),
+                data: earthquakeData.map(entry => ({
+                    x: parseFloat(entry.longitude),
+                    y: parseFloat(entry.latitude),
+                    r: parseFloat(entry.mag)
+                })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
@@ -94,6 +103,18 @@ function drawChart(earthquakeData) {
                         display: true,
                         text: 'Latitude',
                     }
+                }
+            },
+            plugins: {
+                // Use the 'afterDraw' hook to draw circles on top of the scatter plot
+                afterDraw: (chart) => {
+                    const { ctx } = chart;
+                    const data = chart.config.data.datasets[0].data;
+                    
+                    // Draw circles for each earthquake entry
+                    data.forEach(entry => {
+                        drawCircle(ctx, { x: entry.x, y: entry.y }, entry.r);
+                    });
                 }
             }
         }
