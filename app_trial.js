@@ -37,7 +37,6 @@ function parseCSV(csv) {
                 // Remove any non-numeric characters before parsing
                 value = parseFloat(value.replace(/[^\d.]/g, ''));
             }
-
             entry[key] = value;
         }
         data.push(entry);
@@ -62,7 +61,8 @@ function drawChart(earthquakeData) {
     // データを整形
     const latitudes = earthquakeData.map(entry => parseFloat(entry.latitude));
     const longitudes = earthquakeData.map(entry => parseFloat(entry.longitude));
-
+    const magnitudes = earthquakeData.map(entry => parseFloat(entry.mag));
+    
     // グラフを描画するためのコンテキスト
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
 
@@ -72,7 +72,7 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({ x: parseFloat(entry.longitude), y: parseFloat(entry.latitude) })),
+                data: earthquakeData.map(entry => ({ x: parseFloat(entry.longitude), y: parseFloat(entry.latitude), r: parseFloat(entry.mag)  })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
