@@ -69,6 +69,7 @@ function drawChart(earthquakeData) {
                 label: 'Earthquake Locations',
                 data: earthquakeData.map(entry => ({
                     x: parseFloat(entry.longitude),
+                    x: parseFloat(entry.longitude),
                     y: parseFloat(entry.latitude),
                     r: parseFloat(entry.mag)
                 })),
