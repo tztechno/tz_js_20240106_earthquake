@@ -46,7 +46,6 @@ function parseCSV(csv) {
             }
             entry[key] = value;
         }
-        console.log(entry)
         data.push(entry);
     }
     return data;
@@ -100,6 +99,9 @@ function drawChart(earthquakeData) {
                 afterDraw: (chart) => {
                     const { ctx } = chart;
                     const data = chart.config.data.datasets[0].data;
+                    
+                    console.log(data)
+                    
                     // Draw circles for each earthquake entry
                     data.forEach(entry => {
                         drawCircle(ctx, { x: entry.x, y: entry.y }, 10*entry.r);
