@@ -46,6 +46,7 @@ function parseCSV(csv) {
             }
             entry[key] = value;
         }
+        console.log(entry)
         data.push(entry);
     }
     return data;
@@ -68,7 +69,6 @@ function drawChart(earthquakeData) {
             datasets: [{
                 label: 'Earthquake Locations',
                 data: earthquakeData.map(entry => ({
-                    x: parseFloat(entry.longitude),
                     x: parseFloat(entry.longitude),
                     y: parseFloat(entry.latitude),
                     r: parseFloat(entry.mag)
