@@ -1,5 +1,6 @@
 # tz_js_20240106_earthquake
 
+https://github.com/tztechno/tz_js_20240106_earthquake
 
 https://tztechno.github.io/tz_js_20240106_earthquake/index_trial.html
 
