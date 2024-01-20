@@ -41,7 +41,8 @@ function parseCSV(csv) {
                 value = new Date(value);
             } else {
                 // Remove any non-numeric characters before parsing
-                value = parseFloat(value.replace(/[^\d.]/g, ''));
+                value = parseFloat(value);
+                //value = parseFloat(value.replace(/[^\d.]/g, ''));
             }
             entry[key] = value;
         }
