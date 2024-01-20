@@ -1,6 +1,6 @@
 // app.js
 
-const csvFilePath = 'ishikawa_202401.csv';
+const csvFilePath = './ishikawa_202401.csv';
 
 // CSVデータを取得してグラフを描画
 fetch(csvFilePath)
