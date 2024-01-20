@@ -2,14 +2,6 @@
 
 const csvFilePath = './ishikawa_202401.csv';
 
-/*
-fetch('./ishikawa_202401.csv')
-    .then(response => response.text())
-    .then(console.log)
-    .catch(console.error);
-*/
-
-
 fetch('./ishikawa_202401.csv')
     .then(response => {
         if (!response.ok) {
@@ -18,7 +10,6 @@ fetch('./ishikawa_202401.csv')
         return response.text();
     })
     .then(csvData => {
-        // Process CSV data
     })
     .catch(error => {
         console.error('Error:', error);
