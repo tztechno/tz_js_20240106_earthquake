@@ -47,7 +47,6 @@ function parseCSV(csv) {
 
 function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
     const { x, y } = location;
-
     ctx.beginPath();
     ctx.arc(x, y, mag, 0, 2 * Math.PI, false);
     ctx.lineWidth = lineWidth;
@@ -58,7 +57,6 @@ function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
 // Draw circles based on earthquake data
 function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
-
     const myChart = new Chart(ctx, {
         type: 'scatter',
         data: {
@@ -96,7 +94,6 @@ function drawChart(earthquakeData) {
                 afterDraw: (chart) => {
                     const { ctx } = chart;
                     const data = chart.config.data.datasets[0].data;
-
                     // Draw circles for each earthquake entry
                     data.forEach(entry => {
                         drawCircle(ctx, { x: entry.x, y: entry.y }, entry.r);
