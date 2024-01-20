@@ -1,7 +1,7 @@
 // app.js
 
 const csvFilePath = './ishikawa_202401.csv';
-
+console.log(csvFilePath)
 
 fetch(csvFilePath)
     .then(response => {
