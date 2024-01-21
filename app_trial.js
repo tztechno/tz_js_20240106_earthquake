@@ -48,13 +48,13 @@ function parseCSV(csv) {
 }
 
 
-function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
+function drawCircle(ctx, location, mag ) {
     const { x, y } = location;
     const r = mag;
     ctx.beginPath();
-    ctx.arc(x, y, r*10, 0, 2 * Math.PI, false);
-    ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = color;
+    ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'red';
     ctx.stroke();
 }
 
