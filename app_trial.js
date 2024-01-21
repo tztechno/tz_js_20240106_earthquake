@@ -1,4 +1,4 @@
-try// app＿trial.js
+// app＿trial.js
 
 const csvFilePath = './ishikawa_202401.csv';
 
@@ -32,13 +32,6 @@ function parseCSV(csv) {
             if (key === 'time') {
                 value = new Date(value);
             } 
-            
-            /*
-                else {
-                value = parseFloat(value);
-                //value = parseFloat(value.replace(/[^\d.]/g, ''));
-                }
-            */
             
             entry[key] = value;
         }
