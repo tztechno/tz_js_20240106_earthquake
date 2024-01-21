@@ -48,7 +48,7 @@ function parseCSV(csv) {
 }
 
 
-function drawCircle(ctx, location, mag ) {
+function drawCircle(ctx, location, mag) {
     const { x, y } = location;
     const r = mag;
     
@@ -109,7 +109,7 @@ function drawChart(earthquakeData) {
             
             // Draw circles for each earthquake entry
             data.forEach(entry => {
-                drawCircle(ctx, { x:parseFloat(entry.longitude), y:parseFloat(entry.latitude) }, r:parseFloat(entry.mag));
+                drawCircle(ctx, { x:parseFloat(entry.longitude), y:parseFloat(entry.latitude) }, parseFloat(entry.mag));
             });
         }
     });
