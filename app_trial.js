@@ -2,7 +2,8 @@
 
 const csvFilePath = './ishikawa_202401.csv';
 
-fetch('./ishikawa_202401.csv')
+
+fetch(csvFilePath)
     .then(response => {
         if (!response.ok) {
             throw new Error(`Failed to fetch CSV, status ${response.status}`);
@@ -10,10 +11,11 @@ fetch('./ishikawa_202401.csv')
         return response.text();
     })
     .then(csvData => {
+        const earthquakeData = parseCSV(csvData);
+        console.log(earthquakeData)
+        drawChart(earthquakeData);
     })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    .catch(error => console.error('Error:', error));
 
 
 function parseCSV(csv) {
