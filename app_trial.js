@@ -50,7 +50,7 @@ function parseCSV(csv) {
 
 function drawCircle(ctx, location, mag ) {
     const { x, y } = location;
-    const r = mag*10;
+    const r = mag;
     
     console.log(x,y,r);
     
