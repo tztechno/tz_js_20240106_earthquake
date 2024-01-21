@@ -109,4 +109,5 @@ function drawChart(earthquakeData) {
             });
         }
     });
+    console.log('Is customPlugin registered?', Chart.helpers.plugins.getAll().customPlugin);
 }
