@@ -49,8 +49,8 @@ function parseCSV(csv) {
 
 
 function drawCircle(ctx, location, mag) {
-    const { x, y } = location;
-    const r = mag;
+    let { x, y } = location;
+    let r = mag;
     
     console.log(x,y,r);
     
