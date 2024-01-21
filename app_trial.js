@@ -46,7 +46,7 @@ function drawCircle(ctx, entry) {
     let y = parseFloat(entry.latitude);
     let r = parseFloat(entry.mag);
     
-    console.log(x,y,r);
+    console.log(entry);
     
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI, false);
