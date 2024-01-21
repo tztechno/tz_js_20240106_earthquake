@@ -102,6 +102,8 @@ function drawChart(earthquakeData) {
         afterDraw: (chart) => {
             const { ctx } = chart;
             const data = chart.config.data.datasets[0].data;
+            console.log('hello world')
+            console.log(data)
 
             // Draw circles for each earthquake entry
             data.forEach(entry => {
@@ -109,5 +111,4 @@ function drawChart(earthquakeData) {
             });
         }
     });
-    console.log('Is customPlugin registered?', Chart.helpers.plugins.getAll().customPlugin);
 }
