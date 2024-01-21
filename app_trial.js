@@ -107,7 +107,7 @@ function drawChart(earthquakeData) {
             // Draw circles for each earthquake entry
             data.forEach(entry => {
                 console.log(entry)
-                drawCircle(ctx, { x:entry.longitude, y:entry.latitude }, entry.mag);
+                drawCircle(ctx, { x:parseFloat(entry.longitude), y:parseFloat(entry.latitude) }, parseFloat(entry.mag));
             });
         }
     });
