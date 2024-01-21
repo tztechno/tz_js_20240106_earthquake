@@ -52,7 +52,7 @@ function drawCircle(ctx, location, mag) {
     let { x, y } = location;
     let r = mag;
     
-    console.log(x,y,r);
+    console.log(location, mag);
     
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI, false);
