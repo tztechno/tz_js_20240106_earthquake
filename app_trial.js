@@ -51,6 +51,9 @@ function parseCSV(csv) {
 function drawCircle(ctx, location, mag ) {
     const { x, y } = location;
     const r = mag*10;
+    
+    console.log(x,y,r);
+    
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI, false);
     ctx.lineWidth = 1;
