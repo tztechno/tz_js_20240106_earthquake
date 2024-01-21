@@ -12,7 +12,6 @@ fetch(csvFilePath)
     })
     .then(csvData => {
         const earthquakeData = parseCSV(csvData);
-        console.log(earthquakeData)
         drawChart(earthquakeData);
     })
     .catch(error => console.error('Error:', error));
@@ -32,17 +31,22 @@ function parseCSV(csv) {
             // Convert 'time' column to Date object
             if (key === 'time') {
                 value = new Date(value);
-            } else {
-                // Remove any non-numeric characters before parsing
+            } 
+            
+            /*
+                else {
                 value = parseFloat(value);
                 //value = parseFloat(value.replace(/[^\d.]/g, ''));
-            }
+                }
+            */
+            
             entry[key] = value;
         }
         data.push(entry);
     }
     return data;
 }
+
 
 function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
     const { x, y } = location;
@@ -61,9 +65,9 @@ function drawChart(earthquakeData) {
             datasets: [{
                 label: 'Earthquake Locations',
                 data: earthquakeData.map(entry => ({
-                    x: parseFloat(entry.longitude),
-                    y: parseFloat(entry.latitude),
-                    r: parseFloat(entry.mag)
+                    x: entry.longitude,
+                    y: entry.latitude,
+                    r: entry.mag
                 })),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
