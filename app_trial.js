@@ -51,7 +51,7 @@ function parseCSV(csv) {
 function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
     const { x, y } = location;
     ctx.beginPath();
-    ctx.arc(x, y, mag, 0, 2 * Math.PI, false);
+    ctx.arc(x, y, mag*10, 0, 2 * Math.PI, false);
     ctx.lineWidth = lineWidth;
     ctx.strokeStyle = color;
     ctx.stroke();
@@ -103,11 +103,10 @@ function drawChart(earthquakeData) {
             const { ctx } = chart;
             const data = chart.config.data.datasets[0].data;
             console.log('hello world')
-            console.log(data)
-
             // Draw circles for each earthquake entry
             data.forEach(entry => {
-                drawCircle(ctx, { x: entry.x, y: entry.y }, 10 * entry.r);
+                console.log(entry.r)
+                drawCircle(ctx, { x: entry.x, y: entry.y }, entry.r);
             });
         }
     });
