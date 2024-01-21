@@ -1,4 +1,4 @@
-// app＿trial.js
+try// app＿trial.js
 
 const csvFilePath = './ishikawa_202401.csv';
 
@@ -48,12 +48,12 @@ function parseCSV(csv) {
 }
 
 
-function drawCircle(ctx, longitude, latitude, mag) {
-    let x = longitude;
-    let y = latitude;
-    let r = mag;
+function drawCircle(ctx, entry) {
+    let x = parseFloat(entry.longitude);
+    let y = parseFloat(entry.latitude);
+    let r = parseFloat(entry.mag);
     
-    console.log(longitude, latitude, mag);
+    console.log(x,y,r);
     
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI, false);
@@ -110,7 +110,7 @@ function drawChart(earthquakeData) {
             
             // Draw circles for each earthquake entry
             data.forEach(entry => {
-                drawCircle(ctx, parseFloat(entry.longitude), parseFloat(entry.latitude), parseFloat(entry.mag));
+                drawCircle(ctx, entry);
             });
         }
     });
