@@ -57,6 +57,7 @@ function drawCircle(ctx, location, mag, color = 'red', lineWidth = 1) {
     ctx.stroke();
 }
 
+
 function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
     const myChart = new Chart(ctx, {
@@ -92,21 +93,20 @@ function drawChart(earthquakeData) {
                     }
                 }
             },
-            plugins: {
-                afterDraw: (chart) => {
-                    const { ctx } = chart;
-                    const data = chart.config.data.datasets[0].data;
-                    
-                    console.log('hello world')
-                    console.log(chart.config.data.datasets)
-                    console.log(chart.config.data.datasets[0])
-                    
-                    // Draw circles for each earthquake entry
-                    data.forEach(entry => {
-                        drawCircle(ctx, { x: entry.x, y: entry.y }, 10*entry.r);
-                    });
-                }
-            }
+        }
+    });
+
+    // Register the custom plugin outside the options object
+    Chart.register({
+        id: 'customPlugin',
+        afterDraw: (chart) => {
+            const { ctx } = chart;
+            const data = chart.config.data.datasets[0].data;
+
+            // Draw circles for each earthquake entry
+            data.forEach(entry => {
+                drawCircle(ctx, { x: entry.x, y: entry.y }, 10 * entry.r);
+            });
         }
     });
 }
