@@ -41,14 +41,10 @@ function parseCSV(csv) {
 
 
 function drawCircle(ctx, entry) {
-    x = parseFloat(entry.longitude);
-    y = parseFloat(entry.latitude);
-    r = parseFloat(entry.mag);
-    
-    console.log(x,y,r);
+    console.log(entry.longitude, entry.latitude, entry.mag);
     
     ctx.beginPath();
-    ctx.arc(x, y, r*5, 0, 2*Math.PI, false);
+    ctx.arc(entry.longitude, entry.latitude, entry.mag, 0, 2*Math.PI, false);
     ctx.lineWidth = 2;
     ctx.strokeStyle = 'red';
     ctx.stroke();
