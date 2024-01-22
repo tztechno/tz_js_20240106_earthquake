@@ -31,8 +31,7 @@ function parseCSV(csv) {
             // Convert 'time' column to Date object
             if (key === 'time') {
                 value = new Date(value);
-            } 
-            
+            }  
             entry[key] = value;
         }
         data.push(entry);
@@ -46,7 +45,7 @@ function drawCircle(ctx, entry) {
     let y = parseFloat(entry.latitude);
     let r = parseFloat(entry.mag);
     
-    console.log(entry);
+    console.log(x,y,r);
     
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI, false);
