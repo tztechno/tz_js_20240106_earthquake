@@ -39,25 +39,18 @@ function parseCSV(csv) {
     return data;
 }
 
+drawCircle(ctx, {137,37,10});
 
 function drawCircle(ctx, entry) {
     ctx.beginPath();
     ctx.arc( parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*8, 0, 2*Math.PI, false );
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'blue';
+    ctx.strokeStyle = 'red';
     ctx.stroke();
+    
+    console.log(entry);
 }
 
-
-/*
-                data: earthquakeData.map(entry => (
-                    {
-                    x: entry.longitude,
-                    y: entry.latitude,
-                    r: entry.mag
-                    }
-                )),
-*/
 
 function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
@@ -110,8 +103,6 @@ function drawChart(earthquakeData) {
             data.forEach(entry => {
                 //drawCircle(ctx, entry);
                 drawCircle(ctx, { x: entry.x, y: entry.y, r: entry.r });
-                
-                console.log(entry,entry.r);
             });
         }
     });
