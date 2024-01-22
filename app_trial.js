@@ -68,9 +68,9 @@ function drawChart(earthquakeData) {
                 label: 'Earthquake Locations',
                 data: earthquakeData.map(entry => (
                     {
-                    //x: entry.longitude,
-                    //y: entry.latitude,
-                    //r: entry.mag
+                    x: entry.longitude,
+                    y: entry.latitude,
+                    r: entry.mag
                     }
                 )),
                 borderColor: 'rgba(75, 192, 192, 1)',
@@ -111,7 +111,7 @@ function drawChart(earthquakeData) {
                 //drawCircle(ctx, entry);
                 drawCircle(ctx, { x: entry.x, y: entry.y, r: entry.r });
                 
-                console.log(entry);
+                console.log(x,y,z);
             });
         }
     });
