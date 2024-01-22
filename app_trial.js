@@ -39,7 +39,7 @@ function parseCSV(csv) {
     return data;
 }
 
-drawCircle(ctx, {137,37,10});
+
 
 function drawCircle(ctx, entry) {
     ctx.beginPath();
@@ -61,9 +61,9 @@ function drawChart(earthquakeData) {
                 label: 'Earthquake Locations',
                 data: earthquakeData.map(entry => (
                     {
-                    x: entry.longitude,
-                    y: entry.latitude,
-                    r: entry.mag
+                        x: entry.longitude,
+                        y: entry.latitude,
+                        r: entry.mag
                     }
                 )),
                 borderColor: 'rgba(75, 192, 192, 1)',
@@ -91,8 +91,6 @@ function drawChart(earthquakeData) {
             },
         }
     });
-
-    // Register the custom plugin outside the options object
     Chart.register({
         id: 'customPlugin',
         afterDraw: (chart) => {
@@ -101,7 +99,6 @@ function drawChart(earthquakeData) {
             
             // Draw circles for each earthquake entry
             data.forEach(entry => {
-                //drawCircle(ctx, entry);
                 drawCircle(ctx, { x: entry.x, y: entry.y, r: entry.r });
             });
         }
