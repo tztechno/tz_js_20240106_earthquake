@@ -42,9 +42,9 @@ function parseCSV(csv) {
 
 function drawCircle(ctx, entry) {
     ctx.beginPath();
-    ctx.arc(parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r), 0, 2*Math.PI, false);
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'orange';
+    ctx.arc(parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*10, 0, 2*Math.PI, false);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'red';
     ctx.stroke();
 }
 
