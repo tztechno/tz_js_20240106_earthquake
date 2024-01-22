@@ -48,8 +48,8 @@ function drawCircle(ctx, entry) {
     console.log(x,y,r);
     
     ctx.beginPath();
-    ctx.arc(x, y, r, 0, 2*Math.PI, false);
-    ctx.lineWidth = 1;
+    ctx.arc(x, y, r*5, 0, 2*Math.PI, false);
+    ctx.lineWidth = 2;
     ctx.strokeStyle = 'red';
     ctx.stroke();
 }
