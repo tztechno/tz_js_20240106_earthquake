@@ -49,6 +49,16 @@ function drawCircle(ctx, entry) {
 }
 
 
+/*
+                data: earthquakeData.map(entry => (
+                    {
+                    x: entry.longitude,
+                    y: entry.latitude,
+                    r: entry.mag
+                    }
+                )),
+*/
+
 function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
     const myChart = new Chart(ctx, {
@@ -56,11 +66,13 @@ function drawChart(earthquakeData) {
         data: {
             datasets: [{
                 label: 'Earthquake Locations',
-                data: earthquakeData.map(entry => ({
-                    x: entry.longitude,
-                    y: entry.latitude,
-                    r: entry.mag
-                })),
+                data: earthquakeData.map(entry => (
+                    {
+                    //x: entry.longitude,
+                    //y: entry.latitude,
+                    //r: entry.mag
+                    }
+                )),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
             }]
