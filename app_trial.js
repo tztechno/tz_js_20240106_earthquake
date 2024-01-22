@@ -42,7 +42,7 @@ function parseCSV(csv) {
 
 function drawCircle(ctx, entry) {
     ctx.beginPath();
-    ctx.arc(parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*10, 0, 2*Math.PI, false);
+    ctx.arc( parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*10, 0, 2*Math.PI, false );
     ctx.lineWidth = 1;
     ctx.strokeStyle = 'red';
     ctx.stroke();
@@ -96,7 +96,9 @@ function drawChart(earthquakeData) {
             
             // Draw circles for each earthquake entry
             data.forEach(entry => {
-                drawCircle(ctx, entry);
+                //drawCircle(ctx, entry);
+                drawCircle(ctx, { x: entry.x, y: entry.y, r: entry.r });
+                
                 console.log(entry);
             });
         }
