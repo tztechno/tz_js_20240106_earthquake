@@ -58,7 +58,7 @@ function drawCircle(ctx, entry) {
     ctx.beginPath();
     ctx.arc( xi,yi,ri*5, 0, 2*Math.PI, false );
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'green';
+    ctx.strokeStyle = 'red';
     ctx.stroke();
 
 }
