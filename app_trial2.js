@@ -43,18 +43,23 @@ function parseCSV(csv) {
 
 
 function drawCircle(ctx, entry) {
+    
+    xi=parseFloat(entry.x);
+    yi= parseFloat(entry.y); 
+    ri=parseFloat(entry.r);
+    console.log(xi,yi,ri);
+    
     ctx.beginPath();
-    ctx.arc(parseFloat(entry.x), parseFloat(entry.y), 2, 0, 2 * Math.PI, false);
+    ctx.arc(xi,yi, 2, 0, 2 * Math.PI, false);
     ctx.fillStyle = 'red'; // 中心のドットの色を指定
     ctx.fill();
     
     ctx.beginPath();
-    ctx.arc( parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*4, 0, 2*Math.PI, false );
+    ctx.arc( xi,yi,ri*4, 0, 2*Math.PI, false );
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'pink';
+    ctx.strokeStyle = 'purple';
     ctx.stroke();
-    
-    console.log(entry);
+
 }
 
 
