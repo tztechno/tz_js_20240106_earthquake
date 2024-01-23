@@ -42,6 +42,7 @@ function parseCSV(csv) {
 
 
 
+
 function drawCircle(ctx, entry) {
     
     xi=parseFloat(entry.x);
@@ -65,6 +66,14 @@ function drawCircle(ctx, entry) {
 
 function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
+        // Extract longitude, latitude, and magnitude data
+    
+    const data = earthquakeData.map(entry => ({
+        x: entry.longitude,
+        y: entry.latitude,
+        r: entry.mag
+    }));
+    
     const myChart = new Chart(ctx, {
         type: 'scatter',
         data: {
