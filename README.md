@@ -2,7 +2,7 @@
 
 https://github.com/tztechno/tz_js_20240106_earthquake
 
-https://tztechno.github.io/tz_js_20240106_earthquake/index_trial.html
+https://tztechno.github.io/tz_js_20240106_earthquake/index_trial.html (cicleのlocation set不可)
 
 https://tztechno.github.io/tz_js_20240106_earthquake/time_time.html (無意味)
 
