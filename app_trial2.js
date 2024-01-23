@@ -21,7 +21,8 @@ function parseCSV(csv) {
     const lines = csv.split('\n');
     const headers = lines[0].split(',');
     const data = [];
-    for (let i = 1; i < lines.length; i++) {
+    //for (let i = 1; i < lines.length; i++) {
+    for (let i = 1; i < 10; i++) {
         const values = lines[i].split(',');
         const entry = {};
         for (let j = 0; j < headers.length; j++) {
