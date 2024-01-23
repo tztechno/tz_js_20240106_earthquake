@@ -48,7 +48,6 @@ function drawCircle(ctx, entry) {
     xi=parseFloat(entry.x);
     yi= parseFloat(entry.y); 
     ri=parseFloat(entry.r);
-    console.log(xi,yi,ri);
     
     ctx.beginPath();
     ctx.arc(xi,yi, 2, 0, 2 * Math.PI, false);
@@ -58,7 +57,7 @@ function drawCircle(ctx, entry) {
     ctx.beginPath();
     ctx.arc( xi,yi,ri*5, 0, 2*Math.PI, false );
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'navy';
+    ctx.strokeStyle = 'red';
     ctx.stroke();
 
 }
@@ -107,15 +106,7 @@ function drawChart(earthquakeData) {
                         display: true,
                         text: 'Latitude',
                     }
-                },
-                r: {
-                    type: 'linear',
-                    position: 'right',
-                    title: {
-                        display: true,
-                        text: 'Magnitude',
-                    }
-                }            
+                },         
             },
         }
     });
@@ -124,10 +115,9 @@ function drawChart(earthquakeData) {
         afterDraw: (chart) => {
             const { ctx } = chart;
             const data = chart.config.data.datasets[0].data;
+            console.log(data)
             
-            // Draw circles for each earthquake entry
             data.forEach(entry => {
-                //drawCircle(ctx, { x: entry.x, y: entry.y, r: entry.r });
                 drawCircle(ctx, entry);
             });
         }
