@@ -67,12 +67,6 @@ function drawChart(earthquakeData) {
     const ctx = document.getElementById('earthquakeChart').getContext('2d');
         // Extract longitude, latitude, and magnitude data
     
-    const data = earthquakeData.map(entry => ({
-        x: entry.longitude,
-        y: entry.latitude,
-        r: entry.mag
-    }));
-    
     const myChart = new Chart(ctx, {
         type: 'scatter',
         data: {
@@ -114,7 +108,7 @@ function drawChart(earthquakeData) {
         id: 'customPlugin',
         afterDraw: (chart) => {
             const { ctx } = chart;
-            const data = chart.config.data.datasets[0].data;
+            //const data = chart.config.data.datasets[0].data;
             console.log(data)
             
             data.forEach(entry => {
