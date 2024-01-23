@@ -48,9 +48,9 @@ function drawCircle(ctx, entry) {
     ctx.fill();
     
     ctx.beginPath();
-    ctx.arc( parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*8, 0, 2*Math.PI, false );
+    ctx.arc( parseFloat(entry.x), parseFloat(entry.y), parseFloat(entry.r)*4, 0, 0.5*Math.PI, false );
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'red';
+    ctx.strokeStyle = 'blue';
     ctx.stroke();
     
     console.log(entry);
