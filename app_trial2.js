@@ -108,7 +108,7 @@ function drawChart(earthquakeData) {
         id: 'customPlugin',
         afterDraw: (chart) => {
             const { ctx } = chart;
-            //const data = chart.config.data.datasets[0].data;
+            const data = chart.config.data.datasets[0].data;
             console.log(data)
             
             data.forEach(entry => {
