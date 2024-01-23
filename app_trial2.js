@@ -107,7 +107,15 @@ function drawChart(earthquakeData) {
                         display: true,
                         text: 'Latitude',
                     }
-                }
+                },
+                r: {
+                    type: 'linear',
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: 'Magnitude',
+                    }
+                }            
             },
         }
     });
